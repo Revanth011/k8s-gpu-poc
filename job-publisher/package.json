@@ -1,0 +1,27 @@
+{
+  "name": "job-publisher",
+  "version": "1.0.0",
+  "description": "Job publisher for image compression queue",
+  "main": "publisher.js",
+  "scripts": {
+    "publish": "node publisher.js",
+    "publish-multiple": "node publisher.js",
+    "publish-images": "node image-publisher.js",
+    "monitor": "node monitor.js",
+    "bulk-publish": "node bulk-publisher.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "uuid": "^9.0.1",
+    "dotenv": "^16.3.1",
+    "fs-extra": "^11.1.1",
+    "path": "^0.12.7"
+  },
+  "keywords": [
+    "rabbitmq",
+    "job-publisher",
+    "image-compression"
+  ],
+  "author": "",
+  "license": "MIT"
+}

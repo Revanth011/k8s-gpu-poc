@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poc-gpu-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poc-gpu-app
+  template:
+    metadata:
+      labels:
+        app: poc-gpu-app
+    spec:
+      containers:
+        - name: poc-gpu-app
+          image: revanth01/poc-k8s-gpu
+          env:
+            - name: RABBITMQ_URL
+              value: amqp://admin:admin@rabbitmq:5672
+          resources:
+            requests:
+              memory: "2Gi"
+            limits:
+              memory: "2Gi"

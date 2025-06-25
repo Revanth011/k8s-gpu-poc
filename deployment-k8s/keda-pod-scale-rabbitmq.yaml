@@ -1,0 +1,22 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: poc-gpu-app-scaledobject
+  namespace: default # or your namespace
+spec:
+  scaleTargetRef:
+    name: poc-gpu-app
+  pollingInterval: 5
+  cooldownPeriod: 30
+  minReplicaCount: 0
+  maxReplicaCount: 10
+  triggers:
+    - type: rabbitmq
+      metadata:
+        queueName: image_compression_queue
+        mode: QueueLength
+        value: "2" # 👈 Scale 1 pod per 2 messages
+        protocol: amqp
+        vhost: "/" # Add vhost
+      authenticationRef:
+        name: rabbitmq-trigger-auth
