@@ -1,9 +1,3 @@
-# GPU-Accelerated Image Compression Service
-
-A Node.js image compression service with NVIDIA GPU acceleration and RabbitMQ queue processing.
-
-## 🐳 Docker Setup and Run Commands
-
 ### Prerequisites
 
 - Docker Desktop installed
